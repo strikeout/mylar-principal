@@ -16,6 +16,7 @@ Package.onUse(function (api) {
     // TODO: just export one variable containing all these
     api.export("Principal");
     api.export("PrincAttr");
+    api.export("PrincType");
     api.export("Principals");
     api.export("is_indexable");
     api.export("rand_field_name");
