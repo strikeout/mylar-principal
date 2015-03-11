@@ -650,7 +650,8 @@ if (Meteor.isClient) {
                             on_complete && on_complete(undefined);
                         } else {
                             // Did not find a chain
-                            throw new Error("keychain not found");
+                            console.log("keychain not found");
+                            on_complete && on_complete(undefined);
                         }
                     }
                 });
@@ -825,8 +826,8 @@ if (Meteor.isClient) {
             if (typeof authority == "string") {
                 Principal.lookupUser(authority, cb);
             } else {
-                if (!authority.id)
-                    throw new Error("authority in lookup must be principal or string ");
+                if (!authority || authority.id)
+                    throw new Error("authority in lookup must be principal or string, got " + authority);
                 cb(authority);
             }
         }
